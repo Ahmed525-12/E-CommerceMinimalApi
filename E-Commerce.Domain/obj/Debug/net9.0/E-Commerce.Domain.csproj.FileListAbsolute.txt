@@ -1,0 +1,12 @@
+D:\leran poragraming back-end\.NET\E-Commerce\E-Commerce.Domain\bin\Debug\net9.0\E-Commerce.Domain.deps.json
+D:\leran poragraming back-end\.NET\E-Commerce\E-Commerce.Domain\bin\Debug\net9.0\E-Commerce.Domain.dll
+D:\leran poragraming back-end\.NET\E-Commerce\E-Commerce.Domain\bin\Debug\net9.0\E-Commerce.Domain.pdb
+D:\leran poragraming back-end\.NET\E-Commerce\E-Commerce.Domain\obj\Debug\net9.0\E-Commerce.Domain.csproj.AssemblyReference.cache
+D:\leran poragraming back-end\.NET\E-Commerce\E-Commerce.Domain\obj\Debug\net9.0\E-Commerce.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\leran poragraming back-end\.NET\E-Commerce\E-Commerce.Domain\obj\Debug\net9.0\E-Commerce.Domain.AssemblyInfoInputs.cache
+D:\leran poragraming back-end\.NET\E-Commerce\E-Commerce.Domain\obj\Debug\net9.0\E-Commerce.Domain.AssemblyInfo.cs
+D:\leran poragraming back-end\.NET\E-Commerce\E-Commerce.Domain\obj\Debug\net9.0\E-Commerce.Domain.csproj.CoreCompileInputs.cache
+D:\leran poragraming back-end\.NET\E-Commerce\E-Commerce.Domain\obj\Debug\net9.0\E-Commerce.Domain.dll
+D:\leran poragraming back-end\.NET\E-Commerce\E-Commerce.Domain\obj\Debug\net9.0\refint\E-Commerce.Domain.dll
+D:\leran poragraming back-end\.NET\E-Commerce\E-Commerce.Domain\obj\Debug\net9.0\E-Commerce.Domain.pdb
+D:\leran poragraming back-end\.NET\E-Commerce\E-Commerce.Domain\obj\Debug\net9.0\ref\E-Commerce.Domain.dll
