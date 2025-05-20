@@ -15,3 +15,4 @@ D:\leran poragraming back-end\.NET\E-Commerce\E-Commerce.Infastrcture\obj\Debug\
 D:\leran poragraming back-end\.NET\E-Commerce\E-Commerce.Infastrcture\obj\Debug\net9.0\E-Commerce.Infastrcture.pdb
 D:\leran poragraming back-end\.NET\E-Commerce\E-Commerce.Infastrcture\obj\Debug\net9.0\E-Commerce.Infastrcture.genruntimeconfig.cache
 D:\leran poragraming back-end\.NET\E-Commerce\E-Commerce.Infastrcture\obj\Debug\net9.0\ref\E-Commerce.Infastrcture.dll
+D:\leran poragraming back-end\.NET\E-Commerce\E-Commerce.Infastrcture\obj\Debug\net9.0\E-Commerce.Infastrcture.sourcelink.json

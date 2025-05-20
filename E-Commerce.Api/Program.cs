@@ -1,5 +1,7 @@
 using Carter;
 using E_Commerce.Domain.DTOs.EmailDTO;
+using E_Commerce.Domain.Entites.identity;
+using E_Commerce.Domain.Entities.identity;
 using E_Commerce.Handler.ServicesExtension;
 using E_Commerce.Infastrcture;
 using Microsoft.AspNetCore.Identity;
@@ -17,6 +19,25 @@ builder.Host.UseSerilog((context, configuration) =>
     configuration.ReadFrom.Configuration(context.Configuration));
 builder.Services.AddDbContext<AppDbContexts>(options =>
             options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+             builder.Services.AddDefaultIdentity<Account>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = false;
+                options.Tokens.EmailConfirmationTokenProvider = TokenOptions.DefaultEmailProvider;
+            })
+            .AddRoles<IdentityRole>() // Add roles
+            .AddDefaultTokenProviders()
+            .AddEntityFrameworkStores<AppDbContexts>()
+
+            ;
+
+        builder.Services.AddIdentity<Account, IdentityRole>(options =>
+        {
+            options.SignIn.RequireConfirmedAccount = false;
+            options.Tokens.EmailConfirmationTokenProvider = TokenOptions.DefaultEmailProvider;
+        })
+        .AddDefaultTokenProviders()
+        .AddEntityFrameworkStores<AppDbContexts>()
+        .AddSignInManager<SignInManager<Account>>();
 
 builder.Services.AddOpenApi();
 builder.Services.AddCarter();

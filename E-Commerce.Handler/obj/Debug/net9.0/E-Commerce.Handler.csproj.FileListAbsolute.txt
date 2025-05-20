@@ -15,3 +15,4 @@ D:\leran poragraming back-end\.NET\E-Commerce\E-Commerce.Handler\obj\Debug\net9.
 D:\leran poragraming back-end\.NET\E-Commerce\E-Commerce.Handler\obj\Debug\net9.0\refint\E-Commerce.Handler.dll
 D:\leran poragraming back-end\.NET\E-Commerce\E-Commerce.Handler\obj\Debug\net9.0\E-Commerce.Handler.pdb
 D:\leran poragraming back-end\.NET\E-Commerce\E-Commerce.Handler\obj\Debug\net9.0\ref\E-Commerce.Handler.dll
+D:\leran poragraming back-end\.NET\E-Commerce\E-Commerce.Handler\obj\Debug\net9.0\E-Commerce.Handler.sourcelink.json
