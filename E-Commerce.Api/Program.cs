@@ -16,12 +16,14 @@ builder.Services.Configure<MailSettings>(
     builder.Configuration.GetSection("MailSettings"));
 
 // Add database context
-builder.Services.AddDbContext<AppDbContexts>(options =>
-    options.UseNpgsql(
-        builder.Configuration.GetConnectionString("DefaultConnection")));
+// builder.Services.AddDbContext<AppDbContexts>(options =>
+//     options.UseNpgsql(
+//         builder.Configuration.GetConnectionString("DefaultConnection")));
+ builder.Services.AddDbContext<AppDbContexts>(opts =>
+        opts.UseSqlServer( builder.Configuration.GetConnectionString("SqlServer")));
 
 // Configure Identity with a single user type (Account) and roles
- builder.Services.AddDefaultIdentity<Account>(options =>
+builder.Services.AddDefaultIdentity<Account>(options =>
             {
                 options.SignIn.RequireConfirmedAccount = false;
                 options.Tokens.EmailConfirmationTokenProvider = TokenOptions.DefaultEmailProvider;
