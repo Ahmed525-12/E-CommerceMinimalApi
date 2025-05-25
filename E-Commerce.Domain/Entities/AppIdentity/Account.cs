@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace E_Commerce.Domain.Entites.identity
+namespace E_Commerce.Domain.Entites.AppIdentity
 {
     public class Account : IdentityUser
     {

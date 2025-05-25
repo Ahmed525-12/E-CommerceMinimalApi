@@ -1,4 +1,4 @@
-﻿using E_Commerce.Domain.Entites.identity;
+﻿using E_Commerce.Domain.Entites.AppIdentity;
 using System;
 using System.Collections.Generic;
 using System.Linq;

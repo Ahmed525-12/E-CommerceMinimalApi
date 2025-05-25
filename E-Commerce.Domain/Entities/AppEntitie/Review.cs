@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using E_Commerce.Domain.Entities.identity;
+using E_Commerce.Domain.Entities.AppIdentity;
 
 namespace E_Commerce.Domain.Entities.AppEntitie;
 

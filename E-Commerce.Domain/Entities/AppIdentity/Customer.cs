@@ -1,17 +1,17 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using E_Commerce.Domain.Entites.identity;
+using E_Commerce.Domain.Entites.AppIdentity;
 using E_Commerce.Domain.Entities.AppEntitie;
 
-namespace E_Commerce.Domain.Entities.identity;
+namespace E_Commerce.Domain.Entities.AppIdentity;
 
 public class Customer: Account
 {
  public DateTime? DateOfBirth { get; set; }
         
         [StringLength(100)]
-        public string DefaultShippingAddress { get; set; }
+        public string? DefaultShippingAddress { get; set; }
         
         [StringLength(100)]
         public string DefaultBillingAddress { get; set; }

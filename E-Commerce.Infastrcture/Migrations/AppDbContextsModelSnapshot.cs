@@ -22,7 +22,7 @@ namespace E_Commerce.Infastrcture.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("E_Commerce.Domain.Entites.identity.Account", b =>
+            modelBuilder.Entity("E_Commerce.Domain.Entites.AppIdentity.Account", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -803,9 +803,9 @@ namespace E_Commerce.Infastrcture.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("E_Commerce.Domain.Entites.identity.Admin", b =>
+            modelBuilder.Entity("E_Commerce.Domain.Entites.AppIdentity.Admin", b =>
                 {
-                    b.HasBaseType("E_Commerce.Domain.Entites.identity.Account");
+                    b.HasBaseType("E_Commerce.Domain.Entites.AppIdentity.Account");
 
                     b.Property<int>("AccessLevel")
                         .HasColumnType("integer");
@@ -826,9 +826,9 @@ namespace E_Commerce.Infastrcture.Migrations
                     b.ToTable("Admins", (string)null);
                 });
 
-            modelBuilder.Entity("E_Commerce.Domain.Entities.identity.Customer", b =>
+            modelBuilder.Entity("E_Commerce.Domain.Entities.AppIdentity.Customer", b =>
                 {
-                    b.HasBaseType("E_Commerce.Domain.Entites.identity.Account");
+                    b.HasBaseType("E_Commerce.Domain.Entites.AppIdentity.Account");
 
                     b.Property<string>("CustomerTier")
                         .IsRequired()
@@ -843,7 +843,6 @@ namespace E_Commerce.Infastrcture.Migrations
                         .HasColumnType("character varying(100)");
 
                     b.Property<string>("DefaultShippingAddress")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
 
@@ -858,7 +857,7 @@ namespace E_Commerce.Infastrcture.Migrations
 
             modelBuilder.Entity("E_Commerce.Domain.Entities.AppEntitie.Address", b =>
                 {
-                    b.HasOne("E_Commerce.Domain.Entities.identity.Customer", "Customer")
+                    b.HasOne("E_Commerce.Domain.Entities.AppIdentity.Customer", "Customer")
                         .WithMany("Addresses")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -869,7 +868,7 @@ namespace E_Commerce.Infastrcture.Migrations
 
             modelBuilder.Entity("E_Commerce.Domain.Entities.AppEntitie.Cart", b =>
                 {
-                    b.HasOne("E_Commerce.Domain.Entities.identity.Customer", "Customer")
+                    b.HasOne("E_Commerce.Domain.Entities.AppIdentity.Customer", "Customer")
                         .WithOne("Cart")
                         .HasForeignKey("E_Commerce.Domain.Entities.AppEntitie.Cart", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -926,7 +925,7 @@ namespace E_Commerce.Infastrcture.Migrations
                         .HasForeignKey("ShippingAddressId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("E_Commerce.Domain.Entities.identity.Customer", "Customer")
+                    b.HasOne("E_Commerce.Domain.Entities.AppIdentity.Customer", "Customer")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -1017,7 +1016,7 @@ namespace E_Commerce.Infastrcture.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("E_Commerce.Domain.Entities.identity.Customer", "Customer")
+                    b.HasOne("E_Commerce.Domain.Entities.AppIdentity.Customer", "Customer")
                         .WithMany("Reviews")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -1036,7 +1035,7 @@ namespace E_Commerce.Infastrcture.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("E_Commerce.Domain.Entities.identity.Customer", "Customer")
+                    b.HasOne("E_Commerce.Domain.Entities.AppIdentity.Customer", "Customer")
                         .WithMany("WishlistItems")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1058,7 +1057,7 @@ namespace E_Commerce.Infastrcture.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("E_Commerce.Domain.Entites.identity.Account", null)
+                    b.HasOne("E_Commerce.Domain.Entites.AppIdentity.Account", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1067,7 +1066,7 @@ namespace E_Commerce.Infastrcture.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("E_Commerce.Domain.Entites.identity.Account", null)
+                    b.HasOne("E_Commerce.Domain.Entites.AppIdentity.Account", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1082,7 +1081,7 @@ namespace E_Commerce.Infastrcture.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("E_Commerce.Domain.Entites.identity.Account", null)
+                    b.HasOne("E_Commerce.Domain.Entites.AppIdentity.Account", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1091,27 +1090,27 @@ namespace E_Commerce.Infastrcture.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("E_Commerce.Domain.Entites.identity.Account", null)
+                    b.HasOne("E_Commerce.Domain.Entites.AppIdentity.Account", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("E_Commerce.Domain.Entites.identity.Admin", b =>
+            modelBuilder.Entity("E_Commerce.Domain.Entites.AppIdentity.Admin", b =>
                 {
-                    b.HasOne("E_Commerce.Domain.Entites.identity.Account", null)
+                    b.HasOne("E_Commerce.Domain.Entites.AppIdentity.Account", null)
                         .WithOne()
-                        .HasForeignKey("E_Commerce.Domain.Entites.identity.Admin", "Id")
+                        .HasForeignKey("E_Commerce.Domain.Entites.AppIdentity.Admin", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("E_Commerce.Domain.Entities.identity.Customer", b =>
+            modelBuilder.Entity("E_Commerce.Domain.Entities.AppIdentity.Customer", b =>
                 {
-                    b.HasOne("E_Commerce.Domain.Entites.identity.Account", null)
+                    b.HasOne("E_Commerce.Domain.Entites.AppIdentity.Account", null)
                         .WithOne()
-                        .HasForeignKey("E_Commerce.Domain.Entities.identity.Customer", "Id")
+                        .HasForeignKey("E_Commerce.Domain.Entities.AppIdentity.Customer", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -1150,7 +1149,7 @@ namespace E_Commerce.Infastrcture.Migrations
                     b.Navigation("WishlistItems");
                 });
 
-            modelBuilder.Entity("E_Commerce.Domain.Entities.identity.Customer", b =>
+            modelBuilder.Entity("E_Commerce.Domain.Entities.AppIdentity.Customer", b =>
                 {
                     b.Navigation("Addresses");
 

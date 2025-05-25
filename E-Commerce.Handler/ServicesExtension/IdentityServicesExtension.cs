@@ -3,16 +3,10 @@ using E_Commerce.Handler.Email.WorkEmail;
 using E_Commerce.Handler.JWTToken.Intrefaces;
 using E_Commerce.Handler.JWTToken.WorkToken;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace E_Commerce.Handler.ServicesExtension
 {
@@ -20,9 +14,11 @@ namespace E_Commerce.Handler.ServicesExtension
     {
         public static IServiceCollection AddIdentityServices(this IServiceCollection services, IConfiguration configuration)
         {
+            // Register scoped services
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IEmailSettings, EmailSettings>();
 
+            // Configure JWT Authentication
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -40,8 +36,27 @@ namespace E_Commerce.Handler.ServicesExtension
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Key"])),
+                    ClockSkew = TimeSpan.Zero // Remove default 5-minute clock skew
+                };
+
+                // Optional: Add event handlers for debugging
+                options.Events = new JwtBearerEvents
+                {
+                    OnAuthenticationFailed = context =>
+                    {
+                        Console.WriteLine($"Authentication failed: {context.Exception.Message}");
+                        return Task.CompletedTask;
+                    },
+                    OnTokenValidated = context =>
+                    {
+                        Console.WriteLine("Token validated successfully");
+                        return Task.CompletedTask;
+                    }
                 };
             });
+
+            // Add Authorization
+            services.AddAuthorization();
 
             return services;
         }

@@ -1,4 +1,4 @@
-﻿using E_Commerce.Domain.Entites.identity;
+﻿using E_Commerce.Domain.Entites.AppIdentity;
 using E_Commerce.Handler.JWTToken.Intrefaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;

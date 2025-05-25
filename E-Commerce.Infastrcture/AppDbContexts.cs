@@ -1,7 +1,7 @@
 using System;
-using E_Commerce.Domain.Entites.identity;
+using E_Commerce.Domain.Entites.AppIdentity;
 using E_Commerce.Domain.Entities.AppEntitie;
-using E_Commerce.Domain.Entities.identity;
+using E_Commerce.Domain.Entities.AppIdentity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
@@ -37,7 +37,7 @@ public class AppDbContexts : IdentityDbContext<Account>
             modelBuilder.Entity<Admin>().ToTable("Admins");
             modelBuilder.Entity<Customer>().ToTable("Customers");
 
-            // Configure relationships and constraints
+           
             
           
             
