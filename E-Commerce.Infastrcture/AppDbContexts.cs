@@ -13,6 +13,7 @@ public class AppDbContexts : IdentityDbContext<Account>
     public AppDbContexts(DbContextOptions<AppDbContexts> options) : base(options)
     {
     }
+        public DbSet<RefreshToken> RefreshToken { get; set; }
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -199,6 +200,43 @@ public class AppDbContexts : IdentityDbContext<Account>
                 .HasIndex(o => o.OrderNumber)
                 .IsUnique();
                 
+            // Configure precision for decimal properties in Coupon entity
+            modelBuilder.Entity<Coupon>(entity =>
+            {
+                entity.Property(e => e.DiscountAmount).HasColumnType("decimal(18,2)");
+                entity.Property(e => e.MinimumOrderAmount).HasColumnType("decimal(18,2)");
+            });
+
+            // Ensure all decimal properties have consistent precision
+            modelBuilder.Entity<Order>(entity => {
+                entity.Property(e => e.TotalAmount).HasColumnType("decimal(18,2)");
+                entity.Property(e => e.ShippingAmount).HasColumnType("decimal(18,2)");
+                entity.Property(e => e.TaxAmount).HasColumnType("decimal(18,2)");
+                entity.Property(e => e.DiscountAmount).HasColumnType("decimal(18,2)");
+            });
+
+            modelBuilder.Entity<OrderItem>(entity => {
+                entity.Property(e => e.UnitPrice).HasColumnType("decimal(18,2)");
+                entity.Property(e => e.Subtotal).HasColumnType("decimal(18,2)");
+                entity.Property(e => e.DiscountAmount).HasColumnType("decimal(18,2)");
+            });
+
+            modelBuilder.Entity<Cart>(entity => {
+                entity.Property(e => e.TotalAmount).HasColumnType("decimal(18,2)");
+            });
+
+            modelBuilder.Entity<CartItem>(entity => {
+                entity.Property(e => e.UnitPrice).HasColumnType("decimal(18,2)");
+            });
+
+            modelBuilder.Entity<Product>(entity => {
+                entity.Property(e => e.Price).HasColumnType("decimal(18,2)");
+                entity.Property(e => e.DiscountPrice).HasColumnType("decimal(18,2)");
+            });
+
+            modelBuilder.Entity<ProductVariant>(entity => {
+                entity.Property(e => e.AdditionalPrice).HasColumnType("decimal(18,2)");
+            });
         
         }
     

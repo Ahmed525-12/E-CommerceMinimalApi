@@ -10,17 +10,16 @@ using Scalar.AspNetCore;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
-AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
 // Configure mail settings
 builder.Services.Configure<MailSettings>(
     builder.Configuration.GetSection("MailSettings"));
 
 // Add database context
-// builder.Services.AddDbContext<AppDbContexts>(options =>
-//     options.UseNpgsql(
-//         builder.Configuration.GetConnectionString("DefaultConnection")));
- builder.Services.AddDbContext<AppDbContexts>(opts =>
-        opts.UseSqlServer( builder.Configuration.GetConnectionString("SqlServer")));
+builder.Services.AddDbContext<AppDbContexts>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection")));
+        
 
 // Configure Identity with a single user type (Account) and roles
 builder.Services.AddDefaultIdentity<Account>(options =>
@@ -68,13 +67,11 @@ builder.Services.AddCarter();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-    app.MapScalarApiReference();
 
-}
+app.MapOpenApi();
+app.MapScalarApiReference();
+
+
 
 app.UseHttpsRedirection();
 

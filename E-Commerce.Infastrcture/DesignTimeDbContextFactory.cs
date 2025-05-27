@@ -18,7 +18,7 @@ namespace E_Commerce.Infastrcture;
 
             var builder = new DbContextOptionsBuilder<AppDbContexts>();
             var connStr = config.GetConnectionString("DefaultConnection");
-            builder.UseNpgsql(connStr);
+            builder.UseSqlServer(connStr);
 
             return new AppDbContexts(builder.Options);
         }

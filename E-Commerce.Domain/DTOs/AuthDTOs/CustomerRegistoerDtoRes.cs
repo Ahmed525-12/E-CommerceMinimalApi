@@ -4,9 +4,11 @@ namespace E_Commerce.Domain.DTOs.AuthDTOs;
 
 public class CustomerRegistoerDtoRes
 {
-        public string Email { get; set; }
+        public string? Email { get; set; }
 
-        public string DisplayName { get; set; }
+        public string? DisplayName { get; set; }
         public string Token { get; set; }
-        public string RoleName { get; set; }
+        public string RefreshToken { get; set; }
+
+        public string? RoleName { get; set; }
 }

@@ -2756,6 +2756,7 @@
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
           "E-Commerce.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.5",
           "Microsoft.Extensions.Configuration": "9.0.5",
           "Microsoft.Extensions.Configuration.Json": "9.0.5",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.4"
@@ -5443,6 +5444,7 @@
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
           "E-Commerce.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.5",
           "Microsoft.Extensions.Configuration": "9.0.5",
           "Microsoft.Extensions.Configuration.Json": "9.0.5",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.4"

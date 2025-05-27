@@ -2074,3 +2074,4 @@ DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error
 2025-05-25 14:45:44.275 +03:00 [INF] User ahmmmes@gmail.com registered successfully
 2025-05-25 14:48:03.388 +03:00 [INF] User ahmmme@gmail.com logged in successfully
 2025-05-25 14:48:48.925 +03:00 [INF] User ahmmme@gmail.com logged in successfully
+2025-05-25 16:59:06.463 +03:00 [INF] User ahmed2@gmail.com registered successfully

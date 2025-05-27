@@ -54,13 +54,14 @@ public class LoginEndPoint : CarterModule
                  }
                  var token = await tokenService.CreateToken(checkUser);
                  var roles = await userManager.GetRolesAsync(checkUser);
-
+                var refreshDto = await tokenService.CreateRefreshTokenAsync(checkUser);    
                  var loginDtoRes = new LoginDtoRes
                  {
                      Email = checkUser.Email,
                      DisplayName = checkUser.DisplayName,
                      Token = token,
-                     RoleName = roles.ToList()
+                     RoleName = roles.FirstOrDefault(),
+                    RefreshToken = refreshDto.Token
                  };
 
                  logger.LogInformation("User {Email} logged in successfully", loginDtoReq.Email);

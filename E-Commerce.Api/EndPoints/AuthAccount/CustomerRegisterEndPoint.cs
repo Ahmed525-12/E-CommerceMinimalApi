@@ -65,12 +65,15 @@ public class CustomerRegisterEndPoint : CarterModule
             var roleName = (await userManager.GetRolesAsync(account)).FirstOrDefault();
 
             var token = await tokenService.CreateToken(account);
+            var refreshDto = await tokenService.CreateRefreshTokenAsync(account);    
+
             var registerDtoRes = new CustomerRegistoerDtoRes
             {
                 Email = account.Email,
                 DisplayName = account.DisplayName,
                 Token = token,
-                RoleName = roleName
+                RoleName = roleName,
+                RefreshToken = refreshDto.Token
             };
             logger.LogInformation("User {Email} registered successfully", registerDtoReq.Email);
             return Results.Ok(Result<CustomerRegistoerDtoRes>.Success(registerDtoRes, "User registered successfully"));
