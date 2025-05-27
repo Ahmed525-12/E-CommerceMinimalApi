@@ -12,4 +12,6 @@ namespace E_Commerce.Handler.Email.Intrefaces
     {
         public void SendEmail(EmailDTO email);
     }
+
+  
 }

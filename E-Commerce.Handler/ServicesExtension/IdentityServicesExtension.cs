@@ -17,7 +17,7 @@ namespace E_Commerce.Handler.ServicesExtension
             // Register scoped services
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IEmailSettings, EmailSettings>();
-
+            services.AddScoped<IOtpService, OtpService>();
             // Configure JWT Authentication
             services.AddAuthentication(options =>
             {

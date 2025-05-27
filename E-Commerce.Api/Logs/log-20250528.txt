@@ -1,0 +1,96 @@
+2025-05-28 00:19:31.190 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No service for type 'IOtpService' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at lambda_method72(Closure, Object, HttpContext, Object)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<>c__DisplayClass101_2.<<HandleRequestBodyAndCompileRequestDelegateForJson>b__2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-05-28 00:21:45.715 +03:00 [ERR] Failed executing DbCommand (126ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[DisplayName], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[OtpCode], [a].[OtpExpiresAt], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [c].[CustomerTier], [c].[DateOfBirth], [c].[DefaultBillingAddress], [c].[DefaultShippingAddress], [c].[LoyaltyPoints], [c].[SubscribedToNewsletter]
+FROM [AspNetUsers] AS [a]
+INNER JOIN [Customers] AS [c] ON [a].[Id] = [c].[Id]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-05-28 00:21:45.835 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'E_Commerce.Infastrcture.AppDbContexts'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'OtpCode'.
+Invalid column name 'OtpExpiresAt'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:95a4feac-464a-464c-a8de-e97754134f6b
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'OtpCode'.
+Invalid column name 'OtpExpiresAt'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:95a4feac-464a-464c-a8de-e97754134f6b
+Error Number:207,State:1,Class:16
+2025-05-28 00:21:45.841 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'OtpCode'.
+Invalid column name 'OtpExpiresAt'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.FindByEmailAsync(String email)
+   at E_Commerce.Api.EndPoints.AuthAccount.CustomerRegisterEndPoint.<>c.<<AddRoutes>b__0_0>d.MoveNext() in D:\leran poragraming back-end\.NET\E-Commerce\E-Commerce.Api\EndPoints\AuthAccount\CustomerRegisterEndPoint.cs:line 42
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<>c__DisplayClass101_2.<<HandleRequestBodyAndCompileRequestDelegateForJson>b__2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+ClientConnectionId:95a4feac-464a-464c-a8de-e97754134f6b
+Error Number:207,State:1,Class:16
+2025-05-28 00:23:14.935 +03:00 [INF] Verification email sent successfully to ahmedseif5250057@gmail.com
+2025-05-28 00:23:16.982 +03:00 [INF] Created new refresh token for user 980749c1-b65e-4b05-85a5-2f074a7d52b6
+2025-05-28 00:23:16.983 +03:00 [INF] User ahmedseif5250057@gmail.com registered successfully
+2025-05-28 00:48:51.201 +03:00 [INF] Verification email sent successfully to ahmedseif5250057@gmail.com
+2025-05-28 00:48:53.025 +03:00 [INF] Created new refresh token for user 3da2f9ff-e1a1-4042-90b5-9574f3c6b9dd
+2025-05-28 00:48:53.026 +03:00 [INF] User ahmedseif5250057@gmail.com registered successfully
+2025-05-28 00:53:13.283 +03:00 [INF] Verification email sent successfully to ahmedseif5250057@gmail.com
+2025-05-28 00:53:15.064 +03:00 [INF] Created new refresh token for user 41639664-b297-4da5-9b8b-3ab1ebae0e0c
+2025-05-28 00:53:15.065 +03:00 [INF] User ahmedseif5250057@gmail.com registered successfully
+2025-05-28 00:55:50.626 +03:00 [INF] Verification email sent successfully to ahmedseif5250057@gmail.com
+2025-05-28 00:55:52.837 +03:00 [INF] Created new refresh token for user 1a45063b-6912-4a02-ad01-6c52d0ef8793
+2025-05-28 00:55:52.838 +03:00 [INF] User ahmedseif5250057@gmail.com registered successfully
+2025-05-28 01:00:38.740 +03:00 [INF] Verification email sent successfully to ahmedseif5250057@gmail.com
+2025-05-28 01:00:40.961 +03:00 [INF] Created new refresh token for user fe3b0bb0-6fa0-47aa-9f69-1476c646cdfb
+2025-05-28 01:00:40.961 +03:00 [INF] User ahmedseif5250057@gmail.com registered successfully
+2025-05-28 01:18:13.152 +03:00 [INF] Verification email sent successfully to ahmedseif5250057@gmail.com
+2025-05-28 01:18:15.405 +03:00 [INF] Created new refresh token for user a6dcec25-f65c-4cdc-be17-badda5f7c482
+2025-05-28 01:18:15.407 +03:00 [INF] User ahmedseif5250057@gmail.com registered successfully
+2025-05-28 01:36:18.496 +03:00 [INF] Verification email sent successfully to ahmedseif5250057@gmail.com
+2025-05-28 01:36:20.772 +03:00 [INF] Created new refresh token for user 3cfa7937-9b01-46ba-b8ff-28dbf6ef97fb
+2025-05-28 01:36:20.774 +03:00 [INF] User ahmedseif5250057@gmail.com registered successfully

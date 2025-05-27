@@ -11,5 +11,9 @@ namespace E_Commerce.Domain.Entites.AppIdentity
     {
         public string DisplayName { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+
+        // OTP-related properties for email verification
+        public string? OtpCode { get; set; }
+        public DateTime? OtpExpiresAt { get; set; }
     }
 }

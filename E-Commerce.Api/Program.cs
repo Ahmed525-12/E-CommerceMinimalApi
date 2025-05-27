@@ -1,4 +1,5 @@
 using Carter;
+using E_Commerce.Api.ScalarEnhance;
 using E_Commerce.Domain.DTOs.EmailDTO;
 using E_Commerce.Domain.Entites.AppIdentity;
 using E_Commerce.Domain.Entities.AppIdentity;
@@ -53,6 +54,8 @@ builder.Services.AddDefaultIdentity<Account>(options =>
                 .AddSignInManager<SignInManager<Admin>>()
                 ;     
 
+
+
 // Add JWT authentication and other application services
 builder.Services.AddIdentityServices(builder.Configuration);
 builder.Services.AddAplicationServices();
@@ -62,6 +65,10 @@ builder.Host.UseSerilog((context, configuration) =>
     configuration.ReadFrom.Configuration(context.Configuration));
 
 // Add OpenAPI (Swagger) and Carter
+builder.Services.AddOpenApi(options => 
+{
+    options.AddDocumentTransformer<BearerSecuritySchemeTransformer>();
+});
 builder.Services.AddOpenApi();
 builder.Services.AddCarter();
 
@@ -69,7 +76,16 @@ var app = builder.Build();
 
 
 app.MapOpenApi();
-app.MapScalarApiReference();
+app.MapScalarApiReference(options =>
+{
+    options.WithTitle("E-Commerce API Documentation")
+           .WithDarkMode(true)
+           .WithTheme(ScalarTheme.Mars)
+           .WithDarkModeToggle(false)
+           .WithPreferredScheme("Bearer")
+           .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient)
+           .WithSidebar(true);
+});
 
 
 
@@ -80,6 +96,8 @@ app.UseAuthorization();
 
 // Map Carter endpoints
 app.MapCarter();
+
+
 
 // Seed roles
 using (var scope = app.Services.CreateScope())
