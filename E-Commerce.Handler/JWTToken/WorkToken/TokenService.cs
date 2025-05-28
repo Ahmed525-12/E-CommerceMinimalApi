@@ -18,6 +18,7 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using ZLinq;
 
 namespace E_Commerce.Handler.JWTToken.WorkToken
 {
@@ -126,10 +127,27 @@ namespace E_Commerce.Handler.JWTToken.WorkToken
 
     try
     {
-        // Find the refresh token with associated user
-        var refreshToken = await _db.RefreshToken
-            .Include(rt => rt.User)
-            .FirstOrDefaultAsync(rt => rt.Token == request);
+     
+            var result = await _db.RefreshToken
+                .Where(rt => rt.Token == request)
+                .Select(rt => new
+                {
+                    Entity = rt,
+                    User = rt.User
+                })
+                .FirstOrDefaultAsync();
+
+            var refreshToken = result?.Entity;
+            if (refreshToken != null)
+            {
+                refreshToken.User = result.User;
+                
+                
+                refreshToken = new[] { refreshToken }
+                    .AsValueEnumerable()
+                    .First();
+            }
+
 
         // Check if token exists
         if (refreshToken == null)
