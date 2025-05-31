@@ -1,4 +1,6 @@
 ﻿using E_Commerce.Handler.ErrorHandler;
+using E_Commerce.Handler.HandlerServices.InterfacesServices;
+using E_Commerce.Handler.HandlerServices.WorkServices;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -13,7 +15,8 @@ namespace E_Commerce.Handler.ServicesExtension
     {
         public static IServiceCollection AddAplicationServices(this IServiceCollection Services)
         {
-      
+                  Services.AddScoped<ICategoryService, CategoryService>();
+
             Services.AddControllers()
        .AddJsonOptions(options =>
        {

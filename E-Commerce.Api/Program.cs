@@ -82,7 +82,7 @@ app.MapScalarApiReference(options =>
            .WithDarkMode(true)
            .WithTheme(ScalarTheme.Mars)
            .WithDarkModeToggle(false)
-           .WithPreferredScheme("Bearer")
+           .AddPreferredSecuritySchemes("Bearer")
            .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient)
            .WithSidebar(true);
 });
