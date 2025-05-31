@@ -798,11 +798,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\leran poragraming back-end\\.NET\\E-Commerce\\E-Commerce.Domain\\E-Commerce.Domain.csproj",
+      "projectUniqueName": "d:\\leran poragraming back-end\\.NET\\E-Commerce\\E-Commerce.Domain\\E-Commerce.Domain.csproj",
       "projectName": "E-Commerce.Domain",
-      "projectPath": "D:\\leran poragraming back-end\\.NET\\E-Commerce\\E-Commerce.Domain\\E-Commerce.Domain.csproj",
+      "projectPath": "d:\\leran poragraming back-end\\.NET\\E-Commerce\\E-Commerce.Domain\\E-Commerce.Domain.csproj",
       "packagesPath": "C:\\Users\\ahmedsayed\\.nuget\\packages\\",
-      "outputPath": "D:\\leran poragraming back-end\\.NET\\E-Commerce\\E-Commerce.Domain\\obj\\",
+      "outputPath": "d:\\leran poragraming back-end\\.NET\\E-Commerce\\E-Commerce.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

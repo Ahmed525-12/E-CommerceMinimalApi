@@ -77,13 +77,7 @@ public class AppDbContexts : IdentityDbContext<Account>
                 .HasForeignKey(w => w.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
                 
-            // Category self-referencing (parent-child)
-            modelBuilder.Entity<Category>()
-                .HasOne(c => c.ParentCategory)
-                .WithMany(c => c.SubCategories)
-                .HasForeignKey(c => c.ParentCategoryId)
-                .IsRequired(false)
-                .OnDelete(DeleteBehavior.Restrict);
+      
                 
             // Category -> Products (one-to-many)
             modelBuilder.Entity<Product>()

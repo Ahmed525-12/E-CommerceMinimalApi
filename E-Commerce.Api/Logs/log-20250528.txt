@@ -94,3 +94,7 @@ Error Number:207,State:1,Class:16
 2025-05-28 01:36:18.496 +03:00 [INF] Verification email sent successfully to ahmedseif5250057@gmail.com
 2025-05-28 01:36:20.772 +03:00 [INF] Created new refresh token for user 3cfa7937-9b01-46ba-b8ff-28dbf6ef97fb
 2025-05-28 01:36:20.774 +03:00 [INF] User ahmedseif5250057@gmail.com registered successfully
+2025-05-28 10:10:40.183 +03:00 [INF] Verification email sent successfully to sdfsafs@gmail.com
+2025-05-28 10:10:42.360 +03:00 [INF] Created new refresh token for user f782c568-c1e1-4354-8667-28e71a6ef9fc
+2025-05-28 10:10:42.361 +03:00 [INF] User sdfsafs@gmail.com registered successfully
+2025-05-28 10:10:57.253 +03:00 [INF] Successfully refreshed token for user: f782c568-c1e1-4354-8667-28e71a6ef9fc

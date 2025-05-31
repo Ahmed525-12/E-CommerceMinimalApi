@@ -261,12 +261,7 @@ namespace E_Commerce.Infastrcture.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int?>("ParentCategoryId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ParentCategoryId");
 
                     b.ToTable("Categories");
                 });
@@ -937,16 +932,6 @@ namespace E_Commerce.Infastrcture.Migrations
                     b.Navigation("ProductVariant");
                 });
 
-            modelBuilder.Entity("E_Commerce.Domain.Entities.AppEntitie.Category", b =>
-                {
-                    b.HasOne("E_Commerce.Domain.Entities.AppEntitie.Category", "ParentCategory")
-                        .WithMany("SubCategories")
-                        .HasForeignKey("ParentCategoryId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.Navigation("ParentCategory");
-                });
-
             modelBuilder.Entity("E_Commerce.Domain.Entities.AppEntitie.Order", b =>
                 {
                     b.HasOne("E_Commerce.Domain.Entities.AppEntitie.Address", "BillingAddress")
@@ -1168,8 +1153,6 @@ namespace E_Commerce.Infastrcture.Migrations
             modelBuilder.Entity("E_Commerce.Domain.Entities.AppEntitie.Category", b =>
                 {
                     b.Navigation("Products");
-
-                    b.Navigation("SubCategories");
                 });
 
             modelBuilder.Entity("E_Commerce.Domain.Entities.AppEntitie.Order", b =>
